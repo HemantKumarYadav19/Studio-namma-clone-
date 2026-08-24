@@ -67,7 +67,7 @@ body.menu-open .lin {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #E4E4E4; 
+    background-color: #FAFAFA; 
     z-index: 90; /* Below navbar, above everything else */
     display: flex;
     justify-content: center;
@@ -75,12 +75,12 @@ body.menu-open .lin {
     gap: 8vw;
     
     /* Sliding logic */
-    transform: translateX(-100%);
+    transform: translateY(-100%);
     transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 #full-menu.active {
-    transform: translateX(0);
+    transform: translateY(0);
 }
 
 .menu-links-left, 
@@ -98,6 +98,10 @@ body.menu-open .lin {
     line-height: 0.9;
     letter-spacing: -2px;
     transition: color 0.3s ease;
+}
+#full-menu a:hover{
+    transform: translateY(-5px);
+
 }
 
  
@@ -157,28 +161,55 @@ body.menu-open .lin {
 #secdtext{
     
     text-align:center;
-    height: 100vh;
+    height: 80vh;
 }
 #secdtext p{
-    font-family: "Mixtape Extra Condensed", Impact, sans-serif;
+    font-family: "Mixtape Extra Condensed", Light, sans-serif;
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 96px;
     color: rgb(228, 228, 228);
 }
 #secdtext h1{
-    font-family: "Mixtape Extra Condensed", Verdana, sans-serif;
+    font-family: "Mixtape Extra Condensed", Impact, sans-serif;
     text-transform: uppercase;
-    font-size: 61px;
+    font-size: 86px;
     line-height: 90px;
     color: rgb(228, 228, 228);
+}
+#project{
+    height: 200vh;
+}
+#project p{
+    font-family: "Mixtape Extra Condensed", Impact, sans-serif;
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 80px;
+    color:white;
+}
+#project h1{
+font-family: "Mixtape Extra Condensed",Impact, sans-serif;
+    text-align: center;
+    font-size: 200px;
+    line-height: 150px;
+    color: white;
+}
+
+.four-vid video{
+    height: 800px;
+    width: 45%;
 }
 
 
 
 
-/* .fixeddata{
+.fixeddata{
     position:fixed;
+     /* TRoubleshooting: Added left and right padding here */
+    padding: 0px 40px 15px 40px; /* Top: 15px, Right: 40px, Bottom: 0px, Left: 40px */
+    
+    /* THIS IS THE SECRET SAUCE to stop the page from expanding */
+    box-sizing: border-box;
     bottom:0;
     left:0;
     width:100%;
@@ -189,4 +220,4 @@ body.menu-open .lin {
     font-size: 18px;
     padding: 10px 5px 5px 10px;
     z-index: 0;
-} */
+}
