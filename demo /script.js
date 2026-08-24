@@ -1,3 +1,4 @@
+// --- MENU LOGIC ---
 let menu = document.getElementById("menu");
 let fullMenu = document.getElementById("full-menu");
 let isMenuOpen = false;
@@ -29,22 +30,24 @@ menu.addEventListener("click", (e) => {
     }
 });
 
-let talk=document.getElementById("talk")
-talk.addEventListener("mouseenter",()=>{
-    talk.textContent="CONTACT US";
-})
-talk.addEventListener("mouseleave",()=>{
-    talk.textContent="LET'S TALK"
-})
 
-// let thememode=document.getElementById(mode);
-//  thememode.addEventListener('click',(e)=>{
-//     thememode.textContent="DARK MODE";
-// })
+// --- LET'S TALK LOGIC ---
+let talk = document.getElementById("talk");
+
+talk.addEventListener("mouseenter", () => {
+    talk.textContent = "CONTACT US";
+});
+
+talk.addEventListener("mouseleave", () => {
+    talk.textContent = "LET'S TALK!";
+});
+
+
+// --- LIGHT/DARK MODE LOGIC ---
 let mode = document.getElementById("mode");
 
 mode.addEventListener('click', (e) => {
-    e.preventDefault(); // Prevents the page from jumping to the top when clicking the link
+    e.preventDefault(); 
     
     // Toggle the 'light-theme' class on the body
     document.body.classList.toggle("light-theme");
@@ -57,11 +60,12 @@ mode.addEventListener('click', (e) => {
     }
 });
 
-let cursormove=document.querySelector("#curs");
- 
-document.addEventListener('mousemove',(e)=>{
-    console.log(cursormove)
-    cursormove.style.top=`${e.clientY}px`
-    cursormove.style.left=`${e.clientX}px`
-})
 
+// --- CUSTOM CURSOR LOGIC ---
+let cursormove = document.querySelector("#curs");
+ 
+document.addEventListener('mousemove', (e) => {
+    // Ensure the custom cursor centers on the actual mouse position
+    cursormove.style.top = `${e.clientY - (cursormove.offsetHeight / 2)}px`;
+    cursormove.style.left = `${e.clientX - (cursormove.offsetWidth / 2)}px`;
+});
