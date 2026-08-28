@@ -38,6 +38,7 @@ main{
 }
 .bkcolor{
 background-color: #111111;
+height: 100%;
 color: white;
 }
 
@@ -101,6 +102,7 @@ body.menu-open .lin {
 }
 #full-menu a:hover{
     transform: translateY(-5px);
+    transform: translateX(120px);
 
 }
 
@@ -178,7 +180,7 @@ body.menu-open .lin {
     color: rgb(228, 228, 228);
 }
 #project{
-    height: 200vh;
+    height: 250vh;
 }
 #project p{
     font-family: "Mixtape Extra Condensed", Impact, sans-serif;
@@ -205,11 +207,12 @@ font-family: "Mixtape Extra Condensed",Impact, sans-serif;
 
 .fixeddata{
     position:fixed;
-     /* TRoubleshooting: Added left and right padding here */
+    /* TRoubleshooting: Added left and right padding here */
     padding: 0px 40px 15px 40px; /* Top: 15px, Right: 40px, Bottom: 0px, Left: 40px */
     
     /* THIS IS THE SECRET SAUCE to stop the page from expanding */
     box-sizing: border-box;
+    font-family: "Mixtape Extra Condensed", Light, sans-serif ;
     bottom:0;
     left:0;
     width:100%;
@@ -220,4 +223,29 @@ font-family: "Mixtape Extra Condensed",Impact, sans-serif;
     font-size: 18px;
     padding: 10px 5px 5px 10px;
     z-index: 0;
+}
+#project{
+    padding: 30px;
+}
+.four-img{
+    margin-top: 30vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 25px;  
+    width: 100%;
+}
+
+.four-img img{
+    width: 100%;
+}
+#services{
+    padding: 20px;
+    line-height: 200px;
+    font-family:"Mixtape Extra Condensed",Light, sans-serif;
+}
+#tasks{
+    text-align: center;
+    font-family:"Mixtape Extra Condensed",Impact, sans-serif;
+    line-height: 130px;
+    font-size: 60px;
 }
