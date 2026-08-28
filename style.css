@@ -182,6 +182,11 @@ body.menu-open .lin {
 #project{
     height: 250vh;
 }
+body.light-theme #project p,
+body.light-theme #project h1 {
+    color: #111111;
+    /* transition: color 0.3s ease; Optional: smooth fade */
+}
 #project p{
     font-family: "Mixtape Extra Condensed", Impact, sans-serif;
     text-transform: uppercase;
@@ -246,6 +251,61 @@ font-family: "Mixtape Extra Condensed",Impact, sans-serif;
 #tasks{
     text-align: center;
     font-family:"Mixtape Extra Condensed",Impact, sans-serif;
-    line-height: 130px;
+    line-height: 110px;
     font-size: 60px;
+}
+
+/* Base styles for the task items */
+.task-item {
+    position: relative;
+    cursor: pointer;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+/* 1. When hovering ANYWHERE in the #tasks container, fade ALL items */
+#tasks:hover .task-item {
+    opacity: 0.2; /* Changes un-hovered text to be faint/transparent */
+}
+
+/* 2. Bring the SPECIFIC hovered item back to full opacity */
+#tasks .task-item:hover {
+    opacity: 1; 
+}
+
+/* 3. Style the hidden video */
+.hover-video {
+    position: absolute;
+    left: 15%; /* Places video on the left side of the screen */
+    top: 50%;
+    transform: translateY(-50%); /* Keeps it perfectly centered vertically */
+    width: 250px; /* Adjust video size here */
+    border-radius: 12px;
+    
+    /* Hide by default */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* Prevents the video from messing up your mouse hover */
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    z-index: 10;
+}
+
+/* 4. Show the video when the task item is hovered */
+.task-item:hover .hover-video {
+    opacity: 1;
+    visibility: visible;
+}
+#arr {
+    vertical-align: middle;
+    margin-top: -4px; /* Nudges it up slightly to align with font caps */
+    margin-left: 8px; /* Gives the arrow some breathing room from the text */
+}
+
+/* Optional: To prevent the <center> link from inheriting the 200px line-height from #services */
+.bkcolor center a p {
+    line-height: 120px;
+    display: inline-block;
+}
+.bkcolor center a{
+    color: inherit;
+    text-decoration: none;
 }

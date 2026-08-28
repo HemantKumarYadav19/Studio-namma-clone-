@@ -65,3 +65,22 @@ document.addEventListener('mousemove',(e)=>{
     cursormove.style.left=`${e.clientX}px`
 })
 
+const clockElement = document.getElementById("live-clock");
+
+function updateTime() {
+    // You can change 'Europe/Paris' to 'Asia/Hong_Kong' based on your screenshots
+    const timeString = new Date().toLocaleTimeString('en-US', { 
+        timeZone: 'Europe/Paris', 
+        hour12: false 
+    });
+    clockElement.textContent = `Paris, France ${timeString}`;
+}
+
+// Run immediately, then update every 1000ms (1 second)
+updateTime();
+setInterval(updateTime, 1000);
+
+let tasks=document.getElementById(tasks);
+tasks.addEventListener('mouseenter',()=>{
+
+})
