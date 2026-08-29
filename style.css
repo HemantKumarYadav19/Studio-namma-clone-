@@ -243,6 +243,7 @@ font-family: "Mixtape Extra Condensed",Impact, sans-serif;
 .four-img img{
     width: 100%;
 }
+
 #services{
     padding: 20px;
     line-height: 200px;
@@ -252,47 +253,79 @@ font-family: "Mixtape Extra Condensed",Impact, sans-serif;
     text-align: center;
     font-family:"Mixtape Extra Condensed",Impact, sans-serif;
     line-height: 110px;
-    font-size: 60px;
+    font-size: 56px;
 }
-
-/* Base styles for the task items */
+/* 1. Base styles for the task items */
 .task-item {
     position: relative;
     cursor: pointer;
     transition: color 0.3s ease, opacity 0.3s ease;
+    
+    /* Ensures the absolute elements (video & right text) align properly within this row */
+    display: flex;
+    align-items: center;
+    justify-content: center; 
 }
 
-/* 1. When hovering ANYWHERE in the #tasks container, fade ALL items */
+/* 2. Fade ALL items when hovering the container */
 #tasks:hover .task-item {
-    opacity: 0.2; /* Changes un-hovered text to be faint/transparent */
+    opacity: 0.2; 
 }
 
-/* 2. Bring the SPECIFIC hovered item back to full opacity */
+/* 3. Bring hovered item back to full opacity */
 #tasks .task-item:hover {
     opacity: 1; 
 }
 
-/* 3. Style the hidden video */
+/* 4. Left Video - Center Expansion Animation */
 .hover-video {
     position: absolute;
-    left: 15%; /* Places video on the left side of the screen */
+    left: 2%; 
     top: 50%;
-    transform: translateY(-50%); /* Keeps it perfectly centered vertically */
-    width: 250px; /* Adjust video size here */
+    transform: translateY(-50%); 
+    width: 280px; 
     border-radius: 12px;
     
-    /* Hide by default */
     opacity: 0;
     visibility: hidden;
-    pointer-events: none; /* Prevents the video from messing up your mouse hover */
-    transition: opacity 0.4s ease, visibility 0.4s ease;
+    pointer-events: none;
+    
+    /* Clips the video in the center initially */
+    clip-path: inset(0 50% 0 50%); 
+    transition: opacity 0.4s ease, visibility 0.4s ease, clip-path 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 10;
 }
 
-/* 4. Show the video when the task item is hovered */
+/* 5. Right Text - Slide In Animation */
+.hover-text {
+    position: absolute;
+    right: 40px; /* Positions exactly 40px from the right edge */
+    
+    font-family: "Mixtape Extra Condensed", Light, sans-serif;
+    font-size: 15px; /* Slightly smaller than the main heading */
+    letter-spacing: 2px;
+    color: inherit;
+    
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    
+    /* Starts slightly pushed to the right for a smooth slide-in effect */
+    transform: translateX(20px); 
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 6. Reveal Video and Text on Hover */
 .task-item:hover .hover-video {
     opacity: 1;
     visibility: visible;
+    clip-path: inset(0 0% 0 0%); /* Expands to show full video */
+}
+
+.task-item:hover .hover-text {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0); /* Slides text into its final position */
 }
 #arr {
     vertical-align: middle;
