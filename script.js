@@ -80,7 +80,30 @@ function updateTime() {
 updateTime();
 setInterval(updateTime, 1000);
 
-let tasks=document.getElementById(tasks);
-tasks.addEventListener('mouseenter',()=>{
+let tasks = document.getElementById("tasks"); 
 
-})
+// Added a check to make sure it exists before adding the listener
+if (tasks) {
+    tasks.addEventListener('mouseenter', () => {
+        // Your logic here
+    });
+}
+
+const playgroundTitle = document.getElementById("playground-title");
+const portfolioCursor = document.getElementById("portfolio-cursor");
+
+// Show the badge when the mouse enters the text
+playgroundTitle.addEventListener("mouseenter", () => {
+    portfolioCursor.classList.add("active");
+});
+
+// Hide the badge when the mouse leaves the text
+playgroundTitle.addEventListener("mouseleave", () => {
+    portfolioCursor.classList.remove("active");
+});
+
+// Follow the mouse exactly while over the text
+playgroundTitle.addEventListener("mousemove", (e) => {
+    portfolioCursor.style.left = `${e.clientX}px`;
+    portfolioCursor.style.top = `${e.clientY}px`;
+});
